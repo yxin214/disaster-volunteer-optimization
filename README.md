@@ -77,28 +77,25 @@ The dispatch problem is formulated as a binary integer optimization model.
 
 Let:
 
-- \(x_{ij}=1\) if volunteer \(i\) is assigned to task \(j\), and 0 otherwise.
-- \(y_j=1\) if task \(j\) is fully completed, and 0 otherwise.
+- $x_{ij}=1$ if volunteer $i$ is assigned to task $j$, and 0 otherwise.
+- $y_j=1$ if task $j$ is fully completed, and 0 otherwise.
 
 ### Objective
 
 The model balances urgency-weighted task completion against volunteer travel distance:
 
 $$
-\max \quad
-\alpha \sum_{j \in J} u_j y_j
--
-\beta \sum_{i \in I}\sum_{j \in J} d_{ij}x_{ij}
+\max \quad \alpha \sum_{j \in J} u_j y_j - \beta \sum_{i \in I}\sum_{j \in J} d_{ij}x_{ij}
 $$
 
 where:
 
-- \(u_j\): urgency of task \(j\)
-- \(d_{ij}\): travel distance from volunteer \(i\) to task \(j\)
-- \(\alpha\): urgency-priority weight
-- \(\beta\): travel-cost weight
+- $u_j$: urgency of task $j$
+- $d_{ij}$: travel distance from volunteer $i$ to task $j$
+- $\alpha$: urgency-priority weight
+- $\beta$: travel-cost weight
 
-The baseline experiments use \(\alpha=10\) and \(\beta=1\), with the choice of \(\alpha\) further examined through sensitivity analysis.
+The baseline experiments use $\alpha=10$ and $\beta=1$, with the choice of $\alpha$ further examined through sensitivity analysis.
 
 ### Key Constraints
 
@@ -118,13 +115,13 @@ For the complete mathematical formulation, see [`docs/mathematical_model.md`](do
 
 To evaluate the dispatch strategies under different levels of volunteer availability, synthetic disaster-response instances were generated under three relative volunteer-supply conditions:
 
-| Scenario | Relative Supply Level \(R\) | Description |
+| Scenario | Relative Supply Level $R$ | Description |
 |---|---:|---|
 | Resource-rich | 1.3 | Higher volunteer availability |
 | Balanced | 1.0 | Baseline volunteer availability |
 | Resource-scarce | 0.7 | Lower volunteer availability |
 
-For each supply condition, 30 problem instances were generated and evaluated using both the greedy baseline and the optimization model, resulting in 180 method-instance evaluations.
+For each supply condition, 30 problem instances were generated and evaluated using both the greedy baseline and the optimization model, resulting in **180 method-instance evaluations**.
 
 Both methods were tested on the same generated instances to ensure a controlled comparison.
 
@@ -142,7 +139,7 @@ Mean performance and standard deviation across the 30 instances were reported fo
 
 ## Results
 
-The optimization model consistently achieved higher task completion and urgency-weighted completion than the greedy baseline across all three volunteer supply conditions.
+The optimization model consistently achieved higher task completion and urgency-weighted completion than the greedy baseline across all three volunteer-supply conditions.
 
 ### Task Completion
 
@@ -185,15 +182,15 @@ These results show that the higher completion performance of the optimization mo
 
 ## Sensitivity Analysis
 
-The objective-function priority weight \(\alpha\) controls the trade-off between urgency-weighted task completion and travel cost.
+The objective-function priority weight $\alpha$ controls the trade-off between urgency-weighted task completion and travel cost.
 
 A sensitivity analysis was conducted using:
 
-\[
+$$
 \alpha \in \{0.5, 1, 2, 5, 10, 20, 50\}
-\]
+$$
 
-while fixing \(\beta=1\).
+while fixing $\beta=1$.
 
 ### Task Completion
 
@@ -213,11 +210,11 @@ while fixing \(\beta=1\).
   <img src="results/figures/sensitivity/alpha_urgency_completion.png" width="750">
 </p>
 
-As the urgency-priority weight increased, task completion improved at the cost of additional travel. Mean task completion increased from **46.00% at \(\alpha=0.5\)** to **98.33% at \(\alpha=10\)**, while urgency-weighted completion increased from **59.51% to 99.21%**.
+As the urgency-priority weight increased, task completion improved at the cost of additional travel. Mean task completion increased from **46.00% at $\alpha=0.5$** to **98.33% at $\alpha=10$**, while urgency-weighted completion increased from **59.51% to 99.21%**.
 
-Performance reached a plateau at \(\alpha=10\). Values of 10, 20, and 50 produced identical average completion, urgency-weighted completion, and travel-distance results.
+Performance reached a plateau at $\alpha=10$. Values of $\alpha=10$, $\alpha=20$, and $\alpha=50$ produced identical average completion, urgency-weighted completion, and travel-distance results.
 
-Therefore, \(\alpha=10\) was selected as the baseline because it was the smallest tested value that reached the observed performance plateau within the tested parameter range and balanced synthetic scenarios.
+Therefore, $\alpha=10$ was selected as the baseline because it was the smallest tested value that reached the observed performance plateau within the tested parameter range and balanced synthetic scenarios.
 
 ---
 
@@ -227,13 +224,13 @@ Therefore, \(\alpha=10\) was selected as the baseline because it was the smalles
    The optimization model achieved higher mean task completion than the greedy baseline across resource-rich, balanced, and resource-scarce conditions.
 
 2. **The benefit becomes especially important when resources are constrained.**  
-   Under resource scarcity, optimization increased mean task completion from 64.00% to 72.67% and urgency-weighted completion from 78.66% to 85.89%.
+   Under resource scarcity, optimization increased mean task completion from **64.00% to 72.67%** and urgency-weighted completion from **78.66% to 85.89%**.
 
 3. **Optimization improves travel efficiency despite higher task coverage.**  
    Although optimization may dispatch more volunteers and therefore increase total travel in some scenarios, it achieved lower travel distance per completed task across all tested supply conditions.
 
 4. **The objective exhibits a clear service-cost trade-off.**  
-   Increasing the urgency-priority weight improved task coverage while increasing travel cost, with performance reaching an observed plateau at \(\alpha=10\) among the tested values.
+   Increasing the urgency-priority weight improved task coverage while increasing travel cost, with performance reaching an observed plateau at $\alpha=10$ among the tested values.
 
 ---
 
@@ -365,7 +362,7 @@ results/task_level_comparison.csv
 
 ### 7. Run Multi-Scenario Experiments
 
-Evaluate both dispatch methods under resource-rich, balanced, and resource-scarce volunteer supply conditions:
+Evaluate both dispatch methods under resource-rich, balanced, and resource-scarce volunteer-supply conditions:
 
 ```bash
 python experiments/run_multi_scenario.py
