@@ -73,8 +73,8 @@ These findings suggest that the value of global optimization is particularly sig
 
 ## 8. Objective Weight Sensitivity Analysis
 
-A sensitivity analysis was conducted to examine the effect of the urgency-priority weight α in the optimization objective while fixing the travel-cost weight β at 1. Seven values of α (0.5, 1, 2, 5, 10, 20, and 50) were evaluated using the same 30 balanced-supply problem instances.
+A sensitivity analysis was conducted to examine the effect of the urgency-priority weight α in the optimization objective while fixing the travel-cost weight β at 1. Seven values of α (0.5, 1, 2, 5, 10, 20, and 50) were evaluated using the same 30 balanced-supply problem instances to ensure a controlled comparison.
 
-Increasing α substantially improved task completion and urgency-weighted completion, but also increased total travel distance. The mean task completion rate increased from 46.00% at α=0.5 to 98.33% at α=10, while urgency-weighted completion increased from 59.51% to 99.21%.
+As α increased, the model placed greater emphasis on completing high-urgency tasks relative to minimizing travel distance. The mean task completion rate increased from 46.00% at α=0.5 to 98.33% at α=10, while urgency-weighted completion increased from 59.51% to 99.21%. This improvement was accompanied by an increase in mean total travel distance from 4.64 km to 22.04 km, illustrating the trade-off between service coverage and travel cost.
 
-Performance reached a plateau at α=10: α values of 10, 20, and 50 produced identical average completion, urgency-weighted completion, and travel-distance results. This suggests that, among the tested values, additional increases in the priority weight beyond α=10 provide no measurable benefit under the balanced synthetic scenarios. Therefore, α=10 was retained as the baseline setting for the main experiments.
+Performance reached a plateau at α=10: α values of 10, 20, and 50 produced identical average task completion, urgency-weighted completion, and travel-distance results. Within the tested range and under the balanced synthetic scenarios, increasing the priority weight beyond α=10 therefore did not yield further observable performance improvements. Accordingly, α=10 was selected as the baseline setting for the main experiments because it was the smallest tested value that reached this performance plateau.
