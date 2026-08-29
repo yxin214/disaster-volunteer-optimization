@@ -1,0 +1,6 @@
+task_id,urgency,required_volunteers,greedy_assigned,greedy_completed,optimization_assigned,optimization_completed
+T01,5,2,2,True,2,True
+T02,3,3,3,True,3,True
+T03,4,2,2,True,2,True
+T04,2,2,0,False,2,True
+T05,5,1,1,True,1,True

@@ -1,0 +1,3 @@
+method,total_distance_km,completed_tasks,completion_rate,urgency_weighted_completion
+Greedy,14.922380862480093,4,0.8,0.8947368421052632
+Optimization,12.03185736996543,5,1.0,1.0
