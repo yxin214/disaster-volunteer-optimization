@@ -1,0 +1,7 @@
+scenario,method,total_distance_km_mean,total_distance_km_std,completion_rate_mean,completion_rate_std,urgency_weighted_completion_mean,urgency_weighted_completion_std,distance_per_completed_task_mean,distance_per_completed_task_std,distance_per_completed_urgency_mean,distance_per_completed_urgency_std
+balanced,Greedy,21.1821,6.5515,0.8733,0.1081,0.9304,0.0732,2.3907,0.5517,0.7952,0.2794
+balanced,Optimization,22.0368,3.3774,0.9833,0.0461,0.9921,0.0228,2.2385,0.3114,0.7847,0.2084
+resource_rich,Greedy,18.8784,3.302,0.9633,0.0556,0.979,0.0384,1.958,0.3164,0.6805,0.1865
+resource_rich,Optimization,16.9959,2.3649,0.9967,0.0183,0.9989,0.0061,1.7047,0.231,0.601,0.1568
+resource_scarce,Greedy,16.7699,4.5424,0.64,0.0855,0.7866,0.09,2.5971,0.5617,0.743,0.233
+resource_scarce,Optimization,16.4243,3.6323,0.7267,0.0521,0.8589,0.0486,2.2565,0.447,0.668,0.1779
