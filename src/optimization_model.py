@@ -23,7 +23,7 @@ def load_data():
 
     return volunteers, tasks, distance_matrix
 
-def solve_optimization(volunteers, tasks, distance_matrix):
+def solve_optimization(volunteers, tasks, distance_matrix, alpha=10.0, beta=1.0):
     solver = pywraplp.Solver.CreateSolver("SCIP")
 
     if solver is None:
@@ -138,9 +138,7 @@ def solve_optimization(volunteers, tasks, distance_matrix):
                 )
                 >= y[task_id]
             )    
-
-    alpha = 10.0
-    beta = 1.0        
+     
     urgency_reward = sum(
         alpha
         * task["urgency"]
